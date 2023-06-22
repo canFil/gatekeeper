@@ -17,10 +17,10 @@ public class CrudController<TDetails, TCreate, TUpdate, TEntity>: VersionNeutral
         this._baseService = _baseService;
     }
 
-    [HttpGet]
+    [HttpGet("{action}")]
     [MustHavePermission(FSHAction.View, FSHResource.Users)]
     [OpenApiOperation("Get list of all users.", "")]
-    public async Task<LoadResult> Get(DataSourceLoadOptionsBase dataSourceLoadOptions)
+    public async Task<LoadResult> Get(DataSourceLoadOptions dataSourceLoadOptions)
     {
         return await _baseService.GetQueryableData(dataSourceLoadOptions);
     }

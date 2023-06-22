@@ -1,0 +1,10 @@
+﻿@page "/users"
+@attribute [MustHavePermission(FSHAction.View, FSHResource.Users)]
+
+@inject IStringLocalizer<Users> L
+
+<FshTitle Title="@L["Users"]" Description="@L["Manage Users"]" />
+
+<DataGrid Context="@Context">
+
+</DataGrid>
