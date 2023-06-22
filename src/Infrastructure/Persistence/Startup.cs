@@ -1,3 +1,4 @@
+using FSH.WebApi.Application.BaseService;
 using FSH.WebApi.Application.Common.Persistence;
 using FSH.WebApi.Domain.Common.Contracts;
 using FSH.WebApi.Infrastructure.Common;
@@ -71,6 +72,8 @@ internal static class Startup
     {
         // Add Repositories
         services.AddScoped(typeof(IRepository<>), typeof(ApplicationDbRepository<>));
+        services.AddScoped(typeof(ICrudRepository<>), typeof(CrudDbRepository<>));
+        services.AddScoped(typeof(IBaseService<,,,>), typeof(BaseService<,,,>));
 
         foreach (var aggregateRootType in
             typeof(IAggregateRoot).Assembly.GetExportedTypes()

@@ -1,6 +1,7 @@
 using Ardalis.Specification;
 using Ardalis.Specification.EntityFrameworkCore;
 using Finbuckle.MultiTenant;
+using FSH.WebApi.Application.BaseService;
 using FSH.WebApi.Application.Common.Caching;
 using FSH.WebApi.Application.Common.Events;
 using FSH.WebApi.Application.Common.Exceptions;
@@ -8,6 +9,7 @@ using FSH.WebApi.Application.Common.FileStorage;
 using FSH.WebApi.Application.Common.Interfaces;
 using FSH.WebApi.Application.Common.Mailing;
 using FSH.WebApi.Application.Common.Models;
+using FSH.WebApi.Application.Common.Persistence;
 using FSH.WebApi.Application.Common.Specification;
 using FSH.WebApi.Application.Identity.Users;
 using FSH.WebApi.Domain.Identity;

@@ -5,6 +5,7 @@
         <AssemblyName>FSH.WebApi.Application</AssemblyName>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="DevExtreme.AspNet.Data" Version="2.9.2" />
         <PackageReference Include="Ardalis.Specification" Version="6.1.0" />
         <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.2" />
         <PackageReference Include="Mapster" Version="7.3.0" />

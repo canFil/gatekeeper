@@ -6,6 +6,12 @@
 /// <summary>
 /// The regular read/write repository for an aggregate root.
 /// </summary>
+public interface ICrudRepository<T> : IRepositoryBase<T>
+    where T : class
+{
+    public IQueryable<T> GetList();
+}
+
 public interface IRepository<T> : IRepositoryBase<T>
     where T : class, IAggregateRoot
 {

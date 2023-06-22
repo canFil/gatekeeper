@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 using FSH.WebApi.Application.Common.Exceptions;
 using FSH.WebApi.Application.Identity.Tokens;
+using FSH.WebApi.Domain.Identity;
 using FSH.WebApi.Infrastructure.Auth;
 using FSH.WebApi.Infrastructure.Auth.Jwt;
 using FSH.WebApi.Infrastructure.Multitenancy;

@@ -1,4 +1,5 @@
-﻿using FSH.WebApi.Application.Common.Interfaces;
+﻿using FSH.WebApi.Application.BaseService;
+using FSH.WebApi.Application.Common.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FSH.WebApi.Infrastructure.Common;
@@ -8,6 +9,7 @@ internal static class Startup
     internal static IServiceCollection AddServices(this IServiceCollection services) =>
         services
             .AddServices(typeof(ITransientService), ServiceLifetime.Transient)
+            .AddServices(typeof(IBaseService<,,,>), ServiceLifetime.Transient)
             .AddServices(typeof(IScopedService), ServiceLifetime.Scoped);
 
     internal static IServiceCollection AddServices(this IServiceCollection services, Type interfaceType, ServiceLifetime lifetime)
