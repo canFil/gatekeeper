@@ -85,7 +85,7 @@ function initGrid(apibaseUrl, path, editTitle, exportName, popupWidth, popupHeig
             grouping: {
                 autoExpandAll: false,
             },
-            columns: JSON.parse(columns)
+            columns: window.dataGridColumns,
         });
     });
 }

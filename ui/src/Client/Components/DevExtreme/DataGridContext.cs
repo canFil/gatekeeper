@@ -5,12 +5,12 @@
 /// </summary>
 public class DataGridContext
 {
-    public List<object> Fields { get; set; }
     public string Path { get; set; }
     public string EditTitle { get; set; }
     public string ExportName { get; set;}
     public int PopupWidth { get; set; }
     public int PopupHeight { get; set;}
+    public string PageScript { get; set; }
 
     public DataGridContext(
         string path,
@@ -18,13 +18,13 @@ public class DataGridContext
         string exportName,
         int popupWidth,
         int popupHeight,
-        List<object> fields)
+        string pageScript)
     {
         Path = path;
         EditTitle = editTitle;
         ExportName = exportName;
         PopupWidth = popupWidth;
         PopupHeight = popupHeight;
-        Fields = fields;
+        PageScript = pageScript;
     }
 }

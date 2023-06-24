@@ -1,3 +1,4 @@
+using System.Text.Json.Nodes;
 using FSH.BlazorWebAssembly.Client.Infrastructure.Common;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
@@ -18,8 +19,10 @@ public partial class DataGrid
 
     protected override async Task OnInitializedAsync()
     {
+        var importedScript = await JsRuntime.InvokeAsync<IJSObjectReference>("import", Context.PageScript);
+        await importedScript.InvokeVoidAsync("setGridColumns");
+
         await JsRuntime.InvokeVoidAsync("initGrid", Configuration[ConfigNames.ApiBaseUrl], Context.Path,
-            Context.EditTitle, Context.ExportName, Context.PopupWidth, Context.PopupHeight,
-            JsonConvert.SerializeObject(Context.Fields)).ConfigureAwait(false);
+            Context.EditTitle, Context.ExportName, Context.PopupWidth, Context.PopupHeight).ConfigureAwait(false);
     }
 }

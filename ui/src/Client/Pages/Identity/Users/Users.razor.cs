@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using FSH.BlazorWebAssembly.Client.Components.DevExtreme;
+using Microsoft.JSInterop;
+using Microsoft.JSInterop.Implementation;
 using MudBlazor;
 
 namespace FSH.BlazorWebAssembly.Client.Pages.Identity.Users;
@@ -20,6 +22,9 @@ public partial class Users
 
     [Inject]
     protected IUsersClient UsersClient { get; set; } = default!;
+
+    [Inject]
+    protected IJSRuntime JsRuntime { get; set; } = default!;
 
     protected DataGridContext Context { get; set; } = default!;
 
@@ -44,16 +49,9 @@ public partial class Users
 
         Context = new(
             path: "userscrud",
-            fields: new List<object>()
-            {
-                new
-                {
-                    dataField = "firstName",
-                    caption = "Adı"
-                }
-            },
+            pageScript: "./users.js",
             editTitle: "Kullanıcı Ekle",
-            popupWidth: 500,
+            popupWidth: 800,
             popupHeight: 500,
             exportName: "Kullanıcı Listesi");
     }
